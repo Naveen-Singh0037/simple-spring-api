@@ -15,6 +15,7 @@ pipeline {
         // define the SonarQube server URL and credentials
         SONARQUBE_SERVER = 'Sonar Cloud'
         SONAR_PROJECT_KEY = 'jenkins_pipeline_token'
+        // Display Name in SonarQube
         SONAR_PROJECT_NAME = 'simple-spring-api-analysis'
         SONAR_ORGANIZATION = 'naveen-singh0037'
         // --- Docker / Deploy ---
