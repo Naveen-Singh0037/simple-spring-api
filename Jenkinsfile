@@ -25,7 +25,7 @@ pipeline {
         // container port your app listens on
         APP_PORT              = '9595'                          
         // Jenkins credential (username+password) for registry login
-        DOCKERHUB_CREDENTIALS = 'credentials'
+        DOCKERHUB_CREDENTIALS = 'docker-credentials'
         // Optional: set a host port different from container port (e.g., '9595:9595')
         HOST_PORT_MAPPING     = '9595:9595'
 
