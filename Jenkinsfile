@@ -21,7 +21,11 @@ pipeline {
         APP_NAME              = 'spring-api-app'        //Docker images becomes- naveensingh373/spring-api-app(APP_NAME) 
         // <username>/<repo>
         DOCKER_IMAGE          = "naveensingh373/${APP_NAME}"    // naveensingh373 <-- docker hub account name
-        CONTAINER_NAME        = 'spring-api'             //It’s simply the name you give to the container when you run your image with docker run
+        // CONTAINER_NAME        = 'spring-api'             //It’s simply the name you give to the container when you run your image with docker run
+                                                        //it’s not strictly necessary to define CONTAINER_NAME in the Jenkins environment block, but it’s very useful if you want predictable container names.
+                                                         //Docker assigns a random name like tender_fermi.
+                                                         //Every time you run a new container, the name changes.
+
         // container port your app listens on
         APP_PORT              = '9595'                          
         // ID / Jenkins credential (username+password) for registry login FROM DOCKER----------1ST Create access token IN DOCKER ACCOUNT by setting access token discription. in this we set - "jenkins-pipeline"
