@@ -13,21 +13,23 @@ pipeline {
 
     environment {
         // define the SonarQube server URL and credentials
-        SONARQUBE_SERVER = 'Sonar Cloud'
-        SONAR_PROJECT_KEY = 'jenkins_pipeline_token'
-        // Display Name in SonarQube
-        SONAR_PROJECT_NAME = 'simple-spring-api-analysis'
-        SONAR_ORGANIZATION = 'naveen-singh0037'
+        SONARQUBE_SERVER = 'Sonar Cloud'                   //SonarQube servers Name - this name is set to be in jenkinn.  Manage Jenkins-> System, scroll to "SonarQube servers" set name-Sonar Cloud, url-https://sonarcloud.io then add secret text and ID anything like- sonar_id
+        SONAR_PROJECT_KEY = 'jenkins_pipeline_token'       //SonarQube Cloud Token Name.   MyAccount->Security->Generate Token Name      
+        SONAR_PROJECT_NAME = 'simple-spring-api-analysis'  //Display Name -SonarQube Cloud While setup project in sonarqube cloud.
+        SONAR_ORGANIZATION = 'naveen-singh0037'            //Organization -SonarQube Cloud while setup project in sonarqube cloud.
         // --- Docker / Deploy ---
         APP_NAME              = 'simple-spring-api'
         // <username>/<repo>
-        DOCKER_IMAGE          = "naveensingh373/${APP_NAME}"    
-        CONTAINER_NAME        = 'simple-spring-api'
+        DOCKER_IMAGE          = "naveensingh373/${APP_NAME}"    // naveensingh373 <-- docker hub account name
+        CONTAINER_NAME        = 'spring-api'             //It’s simply the name you give to the container when you run your image with docker run
         // container port your app listens on
         APP_PORT              = '9595'                          
-        // Jenkins credential (username+password) for registry login
-        DOCKERHUB_CREDENTIALS = 'docker-credentials'
-        // Optional: set a host port different from container port (e.g., '9595:9595')
+        // ID / Jenkins credential (username+password) for registry login FROM DOCKER----------1ST Create access token IN DOCKER ACCOUNT by setting access token discription. in this we set - "jenkins-pipeline"
+        //                                                                                   + THEN SET THAT New credentials in jenkins- username=dockerusername, password=that generated token key, 
+        //                                                                                      Id = anything. in this case i set "docker-credentials"
+        
+        DOCKERHUB_CREDENTIALS = 'docker-credentials'             
+        // Optional: set a host port different from container port
         HOST_PORT_MAPPING     = '9595:9595'
 
     }
