@@ -38,7 +38,7 @@ pipeline {
                 echo 'Cloning repository...'
                 // by default jenkins will use the master branch
                 // if you want to use a different branch, specify it here
-                git branch: 'main', url: 'https://github.com/ashish-panicker/simple-spring-api.git'
+                git branch: 'main', url: 'https://github.com/Naveen-Singh0037/simple-spring-api.git'
             }
         }
 
@@ -72,9 +72,9 @@ pipeline {
                 withSonarQubeEnv(SONARQUBE_SERVER) {
                     sh """
                         mvn sonar:sonar \
-                        -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-                        -Dsonar.organization=${SONAR_ORGANIZATION} \
-                        -Dsonar.projectName=${SONAR_PROJECT_NAME} \
+                        -Dsonar.projectKey=${Naveen-Singh0037} \
+                        -Dsonar.organization=${naveen-singh0037} \
+                        -Dsonar.projectName=${simple-spring-api} \
                     """
                 }
             }
