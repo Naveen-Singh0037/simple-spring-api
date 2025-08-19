@@ -18,7 +18,7 @@ pipeline {
         SONAR_PROJECT_NAME = 'simple-spring-api-analysis'  //Display Name -SonarQube Cloud While setup project in sonarqube cloud.
         SONAR_ORGANIZATION = 'naveen-singh0037'            //Organization -SonarQube Cloud while setup project in sonarqube cloud.
         // --- Docker / Deploy ---
-        APP_NAME              = 'simple-spring-api'
+        APP_NAME              = 'spring-api-app'        //Docker images becomes- naveensingh373/spring-api-app(APP_NAME) 
         // <username>/<repo>
         DOCKER_IMAGE          = "naveensingh373/${APP_NAME}"    // naveensingh373 <-- docker hub account name
         CONTAINER_NAME        = 'spring-api'             //It’s simply the name you give to the container when you run your image with docker run
