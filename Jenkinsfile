@@ -13,7 +13,7 @@ pipeline {
 
     environment {
         // define the SonarQube server URL and credentials
-        SONARQUBE_SERVER = 'SonarCloud'
+        SONARQUBE_SERVER = 'Sonar Cloud'
         SONAR_PROJECT_KEY = 'jenkins_pipeline_token'
         SONAR_PROJECT_NAME = 'simple-spring-api-analysis'
         SONAR_ORGANIZATION = 'naveen-singh0037'
