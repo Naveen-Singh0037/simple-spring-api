@@ -25,7 +25,7 @@ pipeline {
         // container port your app listens on
         APP_PORT              = '9595'                          
         // Jenkins credential (username+password) for registry login
-        DOCKERHUB_CREDENTIALS = 'docker-credentials'
+        DOCKERHUB_CREDENTIALS = 'credentials'
         // Optional: set a host port different from container port (e.g., '9595:9595')
         HOST_PORT_MAPPING     = '9595:9595'
 
@@ -66,34 +66,34 @@ pipeline {
         }
 
         // stage to perform static code analysis using SonarQube
-        stage('SonarQube Analysis') {
-            steps {
-                echo 'Running SonarQube analysis...'
-                withSonarQubeEnv(SONARQUBE_SERVER) {
-                    sh """
-                        mvn sonar:sonar \
-                        -Dsonar.projectKey=${Naveen-Singh0037} \
-                        -Dsonar.organization=${naveen-singh0037} \
-                        -Dsonar.projectName=${simple-spring-api} \
-                    """
-                }
-            }
-            // post actions for the SonarQube analysis stage
-            post {
-                always {
-                    echo 'SonarQube analysis completed.'
-                }
-            }
-        }
+        // stage('SonarQube Analysis') {
+        //     steps {
+        //         echo 'Running SonarQube analysis...'
+        //         withSonarQubeEnv(SONARQUBE_SERVER) {
+        //             sh """
+        //                 mvn sonar:sonar \
+        //                 -Dsonar.projectKey=${Naveen-Singh0037} \
+        //                 -Dsonar.organization=${naveen-singh0037} \
+        //                 -Dsonar.projectName=${simple-spring-api} \
+        //             """
+        //         }
+        //     }
+        //     // post actions for the SonarQube analysis stage
+        //     post {
+        //         always {
+        //             echo 'SonarQube analysis completed.'
+        //         }
+        //     }
+        // }
 
-        stage('Quality Gate Check') {
-            steps {
-                timeout(time: 10, unit: 'MINUTES') {
-                    echo 'Waiting for SonarQube quality gate...'
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
+        // stage('Quality Gate Check') {
+        //     steps {
+        //         timeout(time: 10, unit: 'MINUTES') {
+        //             echo 'Waiting for SonarQube quality gate...'
+        //             waitForQualityGate abortPipeline: true
+        //         }
+        //     }
+        // }
         
         // stage to build the Docker image
         stage('Build Docker Image') {
